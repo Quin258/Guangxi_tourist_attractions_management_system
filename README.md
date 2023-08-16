@@ -1,0 +1,2 @@
+# Guangxi_tourist_attractions_management_system
+基于广西壮族自治区文化和旅游厅的JavaWeb(JSP)管理系统
