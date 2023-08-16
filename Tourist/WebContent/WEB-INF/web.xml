@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Tourist</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.ncvt.servlet.login.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+	<!--过滤器 -->
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.ncvt.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<context-param>
+		<param-name>uncheckedUrls</param-name>
+		<param-value>/login.jsp,/LoginServlet,/static/js/echarts.js.map,/static/img/login.png,/static/plugins/bootstrap-3.4.1/css/bootstrap.min.css.map,/static/plugins/bootstrap-3.4.1/css/bootstrap.min.css,/static/plugins/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff2,/static/plugins/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff,/static/plugins/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.ttf</param-value>
+	</context-param>
+	<!--用户信息存放到session中的键的名字 -->
+	<context-param>
+		<param-name>userSessionKey</param-name>
+		<param-value>username</param-value>
+	</context-param>
+	<!--若未登录，需要重定向的页面 -->
+	<context-param>
+		<param-name>redirectPage</param-name>
+		<param-value>login.jsp</param-value>
+	</context-param>
+</web-app>
